@@ -18,7 +18,7 @@ def register_handlers(dp):
     dp.add_handler(CommandHandler(["help", "yordam"], bot_help))
     dp.add_handler(
         MessageHandler(
-            filters.ChatType.PRIVATE & filters.Regex(r"^(ℹ️\s*Qoʻllanma|ℹ️\s*Qöllanma|ℹ️\s*Yordam)$"),
+            filters.ChatType.PRIVATE & filters.Regex(r"(?i)^(ℹ️\s*)?(qoʻllanma|qöllanma|qollanma|yordam|help)$"),
             bot_help
         )
     )

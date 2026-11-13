@@ -8,7 +8,7 @@ from utils.db_api import get_or_create_telegram_user, update_user_settings
 
 async def bot_settings(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Sozlamalar menyusini ko'rsatadi."""
-    message = update.message
+    message = update.effective_message
     if not message:
         return
 
@@ -98,7 +98,7 @@ def register_handlers(dp):
     dp.add_handler(CommandHandler(["settings", "sozlamalar"], bot_settings))
     dp.add_handler(
         MessageHandler(
-            filters.ChatType.PRIVATE & filters.Regex(r"^(⚙️\s*Sozlamalar|⚙️\s*Sozlamalar)$"),
+            filters.ChatType.PRIVATE & filters.Regex(r"(?i)^(⚙️\s*)?(sozlamalar|settings)$"),
             bot_settings
         )
     )
