@@ -1,10 +1,11 @@
 from telegram import BotCommand
 
 
-def set_default_commands(dp):
-    dp.bot.set_my_commands(
+async def set_default_commands(application):
+    await application.bot.set_my_commands(
         [
-            BotCommand("start", "Botni ishga tushurish"),
-            BotCommand("help", "Yordam"),
+            BotCommand("start", "Botni ishga tushirish"),
+            BotCommand("settings", "Bot sozlamalari"),
+            BotCommand("help", "Yordam va qo'llanma"),
         ]
     )

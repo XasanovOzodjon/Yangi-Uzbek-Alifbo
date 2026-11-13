@@ -2,9 +2,9 @@ import logging
 from data.config import ADMINS
 
 
-def on_startup_notify(dp):
+async def on_startup_notify(application):
     for admin in ADMINS:
         try:
-            dp.bot.send_message(admin, "Bot ishga tushdi")
+            await application.bot.send_message(admin, "Bot ishga tushdi")
         except Exception as err:
             logging.exception(err)

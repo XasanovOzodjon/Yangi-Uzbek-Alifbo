@@ -1,22 +1,25 @@
-from telegram.ext import Updater
-from loader import bot
+import os
+import django
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
+django.setup()
+
 import handlers
+from loader import application, dp
 from utils.notify_admins import on_startup_notify
 from utils.set_bot_commands import set_default_commands
 
 
+async def post_init(app):
+    await set_default_commands(app)
+    await on_startup_notify(app)
+
+
 def main():
-    updater = Updater(bot.token, use_context=True)
-    dp = updater.dispatcher
-
-    set_default_commands(dp)
-    on_startup_notify(dp)
-
     handlers.register_handlers(dp)
+    application.post_init = post_init
+    application.run_polling()
 
-    updater.start_polling()
-    updater.idle()
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

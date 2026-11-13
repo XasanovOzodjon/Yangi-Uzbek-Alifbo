@@ -20,6 +20,3 @@ def rate_limit(limit: int):
             return func(update, context, *args, **kwargs)
         return wrapper
     return decorator
-
-# python-telegram-bot uchun middleware klassi kerak emas.
-# Faqat yuqoridagi dekoratordan foydalaning va handler funksiyalaringizga qo'llang.

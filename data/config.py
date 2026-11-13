@@ -1,10 +1,19 @@
+import os
+from pathlib import Path
 from environs import Env
 
-# environs kutubxonasidan foydalanish
-env = Env()
-env.read_env()
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# .env fayl ichidan quyidagilarni o'qiymiz
-BOT_TOKEN = env.str("BOT_TOKEN")  # Bot token
-ADMINS = env.list("ADMINS")       # adminlar ro'yxati
-IP = env.str("ip")                # Xosting ip manzili
+env = Env()
+env_file = BASE_DIR / ".env"
+if env_file.exists():
+    env.read_env(str(env_file))
+else:
+    env.read_env()
+
+BOT_TOKEN = env.str("BOT_TOKEN", default="")
+ADMINS = env.list("ADMINS", default=[], subcast=int)
+IP = env.str("ip", default="localhost")
+DEBUG = env.bool("DEBUG", default=True)
+SECRET_KEY = env.str("SECRET_KEY", default="django-insecure-alifbo-secret-key-change-in-production")
+EXCEPTIONS_FILE = BASE_DIR / "data" / "exceptions.json"

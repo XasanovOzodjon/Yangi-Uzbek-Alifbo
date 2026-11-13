@@ -1,9 +1,11 @@
-from . import errors
-from .users import start, help, echo
+from . import users
 from . import groups
 from . import channels
+from . import errors
+
 
 def register_handlers(dp):
-    start.register_handlers(dp)
-    help.register_handlers(dp)
-    echo.register_handlers(dp)
+    users.register_handlers(dp)
+    groups.register_handlers(dp)
+    channels.register_handlers(dp)
+    errors.register_handlers(dp)

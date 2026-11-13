@@ -1,0 +1,32 @@
+{
+  "_comment": "Yangi alifboga o'girishda istisno so'zlar ro'yxati. Bu faylni to'g'ridan-to'g'ri tahrirlashingiz yoki Django Admin orqali boshqarishingiz mumkin.",
+  "ng_exceptions": [
+    "yangi",
+    "yangilik",
+    "yangicha",
+    "yangilash",
+    "yangilanish",
+    "yangilar",
+    "yangisiga",
+    "yangisi",
+    "bodring",
+    "jangovar",
+    "vagon",
+    "anglash",
+    "anglamoq",
+    "tonggi",
+    "tonga",
+    "mingan",
+    "singan",
+    "mangu",
+    "tanqid",
+    "manfaatangiz"
+  ],
+  "sh_exceptions": [
+    "ishoq",
+    "ashob",
+    "mushaf",
+    "ashobi"
+  ],
+  "custom_mappings": {}
+}
